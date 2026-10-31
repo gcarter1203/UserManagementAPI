@@ -1,0 +1,45 @@
+@UserManagementAPI_HostAddress = http://localhost:5286
+
+### Get all users
+GET {{UserManagementAPI_HostAddress}}/api/users###unauthorized
+Accept: application/json
+
+###valid get all users
+GET {{UserManagementAPI_HostAddress}}/api/users
+Authorization: Bearer "MySecretToken"
+
+### Get a user by ID
+GET {{UserManagementAPI_HostAddress}}/api/users/1
+Accept: application/json
+Authorization: Bearer MySecretToken
+
+### Create a user
+POST {{UserManagementAPI_HostAddress}}/api/users
+Content-Type: application/json
+Authorization: Bearer MySecretToken
+
+{
+  "userName": "alex",
+  "userEmail": "john.doe@email.com"
+}
+
+### Update a user
+PUT {{UserManagementAPI_HostAddress}}/api/users/1
+Content-Type: application/json
+Authorization: Bearer MySecretToken
+
+{
+  "userName": "alex-updated",
+  "userEmail": "updatedEmail@email.com"
+}
+
+### Delete a user
+DELETE {{UserManagementAPI_HostAddress}}/api/users/1
+Authorization: Bearer MySecretToken
+
+###
+//error test
+GET {{UserManagementAPI_HostAddress}}/api/users/error
+Authorization: Bearer MySecretToken
+
+//copilot generated a test code that checks all endpoints
